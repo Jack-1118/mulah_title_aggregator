@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title Aggregator</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: grey;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Latest Articles from The Verge</h1>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+        {% for article in articles %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td><a href="{{ article.link }}">{{ article.title }}</a></td>
+                <td>{{ article.date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
